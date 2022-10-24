@@ -1,0 +1,26 @@
+body {
+    background-image: url("cool image.jpg");
+    background-color: #cccccc;
+   }
+h1 {
+    font-size: 72px;
+    color: rgb(209, 208, 144);
+    background: -webkit-linear-gradient(rgb(184, 163, 163), rgba(58, 167, 7, 0.742));
+}
+h2 {
+    font-size: 80px;
+    color: rgb(57, 56, 35);
+    background: -webkit-linear-gradient(rgb(163, 8, 103), rgb(60, 19, 207));
+}
+p {
+    color: red;
+}
+input[type=button], input[type=submit], input[type=reset] {
+    background-color: #04AA6D;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
