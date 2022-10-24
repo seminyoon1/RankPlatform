@@ -4,8 +4,10 @@ app = Flask(__name__)
 arr = []
 @app.route('/')
 def index():
+    #basic rendering, must be in the templates folder
    return render_template("home.html")
  
+#app.route("variable name") correlates to the function, called from html button form action
 @app.route('/text', methods=['GET', 'POST'])
 def text():
     if request.method == "GET":
