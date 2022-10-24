@@ -9,5 +9,8 @@ def getData():
         #return data
     data.close()
     return arr
-print(getData())
+
+def addData():
+    #add code here with user database
+    return None
 
