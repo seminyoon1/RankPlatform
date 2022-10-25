@@ -11,6 +11,8 @@ def getData():
     return arr
 
 def addData():
+    arr = []
+    for i in range(10):
+        print(i)
     #add code here with user database
-    return None
-
+    return arr
