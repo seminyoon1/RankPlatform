@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
 
+.Heading {
+    font-size: 50px;
+    color: white;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+}
+
 body {
     background-image: url("web_bkrndjpg");
     background-color: #c1a735;
@@ -36,4 +43,20 @@ body > main {
     grid-template-columns: repeat(2, 50%);
     grid-template-rows: 15rem;
     gap: 8px;
+}
+
+.ItemButton {
+    font-size: 40px;
+    color: white;
+    background: rgb(96, 35, 35);
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    width: 100%;
+
+    border: none;
+    cursor: pointer;
+}
+
+.ItemButton:hover {
+    background: rgb(60, 22, 22);
 }
