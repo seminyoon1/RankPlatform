@@ -1,5 +1,6 @@
 import boto3
 
+#This is the template file
 table = boto3.resource('dynamodb').Table('Items')
 
 table.put_item(

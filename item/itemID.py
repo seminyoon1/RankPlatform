@@ -1,3 +1,5 @@
+#convert from item string to ID 
+#(some elements have 0 ID: these are test values/other values and may coincide with current item names)
 def convertToID(item):
     numStr = ""
     if(type(item)) == str:

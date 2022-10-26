@@ -1,6 +1,6 @@
 def getData():
     arr = {}
-    data = open("data.txt", "r")
+    data = open("testData/data.txt", "r")
     lines = data.readlines()
 
     for textLine in lines:

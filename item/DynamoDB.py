@@ -1,5 +1,5 @@
 import boto3
-from itemID import convertToID
+from item.itemID import convertToID #add DynamoDB.itemID after testing
 
 #DOCUMENTATION https://boto3.amazonaws.com/v1/documentation/api/latest/guide/dynamodb.html
 
@@ -70,8 +70,9 @@ def getItem(item):
     return info
 
 #update in progress NEED TO FIX
-def addToItem(item)
-    values = getItem(item)
+def addToItem(item):
+    values = getItem(item) #fix values to get element
+    table = dynamodb.Table('Items')
     #get dict key from value to update
     if(type(item)) == str:
         num = convertToID(item)
@@ -83,7 +84,7 @@ def addToItem(item)
             },
         UpdateExpression='SET item_popularity = popularity',
         ExpressionAttributeValues={
-            'popularity': value+1
+            'popularity': values+1
         }
         )
 )
