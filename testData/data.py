@@ -1,6 +1,6 @@
 def getData():
     arr = {}
-    data = open("data.txt", "r")
+    data = open("testData/data.txt", "r")
     lines = data.readlines()
 
     for textLine in lines:
@@ -9,5 +9,10 @@ def getData():
         #return data
     data.close()
     return arr
-print(getData())
 
+def addData():
+    arr = []
+    for i in range(10):
+        print(i)
+    #add code here with user database
+    return arr
