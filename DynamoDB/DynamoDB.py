@@ -41,8 +41,8 @@ def createTable(name):
 # This will cause a request to be made to DynamoDB and its attribute
 def addItem(item):
     table = dynamodb.Table('Items')
-    num = convertToID(item)
     if(type(item)) == str:
+        num = convertToID(item)
         table.put_item(
         Item={
                 'item_name': item,
@@ -64,6 +64,8 @@ def getItem(item):
             'item_ID': num
             }
         )
+    else:
+        print("not a string")
     info = response['Item']
     return info
 

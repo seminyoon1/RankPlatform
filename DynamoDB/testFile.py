@@ -1,3 +1,4 @@
+from urllib.response import addinfo
 from DynamoDB import addItem,createTable,getItem #add DynamoDB.DynamoDB after testing
 
 #addItem adds item to the table
@@ -6,7 +7,8 @@ from DynamoDB import addItem,createTable,getItem #add DynamoDB.DynamoDB after te
 
 #createTable("Items")
 #addItem('computer')
-print(getItem('computer'))
+#print(getItem('computer'))
 #addItem('pizza')
-print(getItem('pizza'))
-addItem('helo')
+#print(getItem('pizza'))
+#addItem("monkey")
+addItem(123423134)
