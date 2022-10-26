@@ -71,20 +71,19 @@ def getItem(item):
 
 #update in progress NEED TO FIX
 def addToItem(item):
-    values = getItem(item) #fix values to get element (values return a dict)
+    dictValues = getItem(item) #fix values to get element (values return a dict)
+    values = dictValues["item_popularity"]
     table = dynamodb.Table('Items')
     #get dict key from value to update
     if(type(item)) == str:
         num = convertToID(item)
         table.update_item(
-        response = table.get_item(
         Key={
             'item_name': item,
             'item_ID': num
-            },
-        UpdateExpression='SET item_popularity = popularity',
+        },
+        UpdateExpression='SET item_popularity = :item',
         ExpressionAttributeValues={
-            'popularity': values+1
+            ':item': values + 1
         }
         )
-    )

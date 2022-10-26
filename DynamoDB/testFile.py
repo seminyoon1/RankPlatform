@@ -1,5 +1,4 @@
-from urllib.response import addinfo
-from DynamoDB import addItem,createTable,getItem #add DynamoDB.DynamoDB after testing
+from DBItems import addItem,createTable,getItem,addToItem #add DynamoDB.DynamoDB after testing
 
 #addItem adds item to the table
 #createTable creates a table. 
@@ -11,4 +10,4 @@ from DynamoDB import addItem,createTable,getItem #add DynamoDB.DynamoDB after te
 #addItem('pizza')
 #print(getItem('pizza'))
 #addItem("monkey")
-addItem(123423134)
+addToItem('computer')
