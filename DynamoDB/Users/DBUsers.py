@@ -1,5 +1,5 @@
 import boto3
-from itemID import convertToID #add DynamoDB.itemID after testing
+from UserID import convertToID #add DynamoDB.itemID after testing
 
 #DOCUMENTATION https://boto3.amazonaws.com/v1/documentation/api/latest/guide/dynamodb.html
 
@@ -69,7 +69,7 @@ def getItem(item):
     info = response['Item']
     return info
 
-#update in progress NEED TO FIX
+#updated - add 1 popularity to item: popularity sujected to change based on user info
 def addToItem(item):
     dictValues = getItem(item) #fix values to get element (values return a dict)
     values = dictValues["item_popularity"]
