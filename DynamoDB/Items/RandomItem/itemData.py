@@ -11,19 +11,21 @@ class randomTable:
             'item_ID': 0
             }
         )
-        value = response['Item']['value']
+        value = response['Item']['valueItem']
         return value
 
     def addItemValue():
-        values = getItemValue()
-        table = dynamodb.Table('Items')
+        dynamodb = boto3.resource('dynamodb')
+        value = randomTable.getItemValue()
+        table = dynamodb.Table('Random_Items')
         table.update_item(
         Key={
             'item_name': 'CRTgetITRANDvalue',
             'item_ID': 0
         },
-        UpdateExpression='SET item_popularity = :item',
+        UpdateExpression='SET valueItem = :item',
         ExpressionAttributeValues={
-            ':item': values + 1
+            ':item': value + 1
         }
         )
+        print("Does this work?")

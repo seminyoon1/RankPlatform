@@ -43,7 +43,7 @@ def createTable(name):
 def addItem(item):
     if(type(item)) == str:
         table = dynamodb.Table('Items')
-        randomTable = dynamo.Table('Random_Items')
+        randTable = dynamodb.Table('Random_Items')
 
         num = convertToID(item)
         table.put_item(
@@ -54,11 +54,11 @@ def addItem(item):
             }
         )
         val = randomTable.getItemValue()
-        randomTable.put_item(
+        randTable.put_item(
         Item={
                 'item_name': item,
-                'item_ID': num,
-                'item_popularity': val
+                'item_ID': 0,
+                'valueItem': val
             }
         )
         randomTable.addItemValue()
