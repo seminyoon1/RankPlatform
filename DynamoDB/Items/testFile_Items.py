@@ -10,4 +10,5 @@ from DBItems import addItem,createTable,getItem,addToItem #add DynamoDB.Items af
 #addItem('pizza')
 #print(getItem('pizza'))
 #addItem("monkey")
-addToItem('computer')
+#addToItem('computer')
+createTable("Random_Items")

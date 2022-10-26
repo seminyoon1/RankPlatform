@@ -1,5 +1,6 @@
 import boto3
-from DynamoDB.itemID import convertToID #add DynamoDB.itemID after testing
+from itemID import convertToID #add DynamoDB.itemID after testing
+from RandomItem.itemData import randomTable
 
 #DOCUMENTATION https://boto3.amazonaws.com/v1/documentation/api/latest/guide/dynamodb.html
 
@@ -40,8 +41,10 @@ def createTable(name):
 # Print out some data about the table.
 # This will cause a request to be made to DynamoDB and its attribute
 def addItem(item):
-    table = dynamodb.Table('Items')
     if(type(item)) == str:
+        table = dynamodb.Table('Items')
+        randomTable = dynamo.Table('Random_Items')
+
         num = convertToID(item)
         table.put_item(
         Item={
@@ -50,6 +53,15 @@ def addItem(item):
                 'item_popularity': 0
             }
         )
+        val = randomTable.getItemValue()
+        randomTable.put_item(
+        Item={
+                'item_name': item,
+                'item_ID': num,
+                'item_popularity': val
+            }
+        )
+        randomTable.addItemValue()
     else:
         print("not a string")
 
