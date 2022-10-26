@@ -9,3 +9,4 @@ from DynamoDB import addItem,createTable,getItem #add DynamoDB.DynamoDB after te
 print(getItem('computer'))
 #addItem('pizza')
 print(getItem('pizza'))
+addItem('helo')
