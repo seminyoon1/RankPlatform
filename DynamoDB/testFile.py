@@ -9,5 +9,9 @@ from DBItems import addItem,createTable,getItem,addToItem #add DynamoDB.DynamoDB
 #print(getItem('computer'))
 #addItem('pizza')
 #print(getItem('pizza'))
+<<<<<<< Updated upstream
 #addItem("monkey")
 addToItem('computer')
+=======
+addItem('string')
+>>>>>>> Stashed changes

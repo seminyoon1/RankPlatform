@@ -1,16 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
+
 body {
-    background-image: url("cool image.jpg");
-    background-color: #cccccc;
+    background-image: url("web_bkrndjpg");
+    background-color: #c1a735;
 }
 h1 {
-    font-size: 72px;
-    color: rgb(209, 208, 144);
-    background: -webkit-linear-gradient(rgb(184, 163, 163), rgba(58, 167, 7, 0.742));
+    font-size: 40px;
+    color: white;
+    background: rgb(96, 35, 35);
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
 }
 h2 {
-    font-size: 80px;
-    color: rgb(57, 56, 35);
-    background: -webkit-linear-gradient(rgb(163, 8, 103), rgb(60, 19, 207));
+    font-size: 40px;
+    color: white;
+    background:rgb(96, 35, 35);
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
 }
 p {
     color: red;
@@ -23,4 +29,11 @@ input[type=button], input[type=submit], input[type=reset] {
     text-decoration: none;
     margin: 4px 2px;
     cursor: pointer;
+}
+
+body > main {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: 15rem;
+    gap: 8px;
 }

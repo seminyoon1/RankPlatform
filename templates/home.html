@@ -7,13 +7,34 @@
   <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/home.css') }}" />
 </head>
 <body>
-  <h1>
-    {{ arrItem }}
-  </h1>
-  <h2>With popularity</h2>
-  <h1>
-    {{ arrNum}}
-  </h1>
+  <main>
+    <div class="Item1">
+      <h1>
+        {{ arrItem }}
+      </h1>
+    </div>
+    <div class="Item2">
+      <h1>
+        {{ arrItem }}
+      </h1>
+    </div>
+    <div class="PopularityText1"> 
+      <h2>With popularity</h2>
+    </div>
+    <div class="PopularityText2">
+      <h2>With popularity</h2>
+    </div>
+    <div class="Popularity1">
+      <h1>
+        {{ arrNum }}
+      </h1>
+    </div>
+    <div class="Popularity2">
+      <h1>
+        {{ arrNum }}
+      </h1>
+    </div>
+  </main>
   <h3>Form</h3>
   <!-- see web.py for form action - method post-->
   <form action="/text" method="post">
