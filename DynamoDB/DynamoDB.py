@@ -1,5 +1,5 @@
 import boto3
-from item.itemID import convertToID #add DynamoDB.itemID after testing
+from itemID import convertToID #add DynamoDB.itemID after testing
 
 #DOCUMENTATION https://boto3.amazonaws.com/v1/documentation/api/latest/guide/dynamodb.html
 
@@ -39,8 +39,6 @@ def createTable(name):
 
 # Print out some data about the table.
 # This will cause a request to be made to DynamoDB and its attribute
-# values will be set based on the response.
-#print(table.creation_date_time)
 def addItem(item):
     table = dynamodb.Table('Items')
     num = convertToID(item)
@@ -71,7 +69,7 @@ def getItem(item):
 
 #update in progress NEED TO FIX
 def addToItem(item):
-    values = getItem(item) #fix values to get element
+    values = getItem(item) #fix values to get element (values return a dict)
     table = dynamodb.Table('Items')
     #get dict key from value to update
     if(type(item)) == str:
@@ -87,4 +85,4 @@ def addToItem(item):
             'popularity': values+1
         }
         )
-)
+    )
