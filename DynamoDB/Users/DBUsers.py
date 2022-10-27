@@ -12,22 +12,13 @@ def createTable(name):
         TableName=name,
         KeySchema=[
             {
-                'AttributeName': 'item_name',
+                'AttributeName': 'valueItem',
                 'KeyType': 'HASH'
-            },
-            {
-                'AttributeName': 'item_ID',
-                'KeyType': 'RANGE',
-                'KeyType': 'RANGE'
             }
         ],
         AttributeDefinitions=[
             {
-                'AttributeName': 'item_name',
-                'AttributeType': 'S'
-            },
-            {
-                'AttributeName': 'item_ID',
+                'AttributeName': 'valueItem',
                 'AttributeType': 'N'
             }
         ],

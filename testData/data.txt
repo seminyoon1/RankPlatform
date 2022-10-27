@@ -1,9 +1,6 @@
 stop,6
-hello,8
-bee,34567
-q,57
-same,675
-why,32
-tableee,85
-ggfaer,35
-rgrgrr,23
+table,8
+bowl,34
+bread,675
+cup,32
+computer,23

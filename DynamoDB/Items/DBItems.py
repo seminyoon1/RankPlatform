@@ -18,7 +18,6 @@ def createTable(name):
             },
             {
                 'AttributeName': 'item_ID',
-                'KeyType': 'RANGE',
                 'KeyType': 'RANGE'
             }
         ],
@@ -53,12 +52,12 @@ def addItem(item):
                 'item_popularity': 0
             }
         )
+        #add randomTable values to pick a randomvalue
         val = randomTable.getItemValue()
         randTable.put_item(
         Item={
-                'item_name': item,
-                'item_ID': 0,
-                'valueItem': val
+                'valueItem': val,
+                'item_name': item
             }
         )
         randomTable.addItemValue()

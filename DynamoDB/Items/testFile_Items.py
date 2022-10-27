@@ -9,5 +9,5 @@ from DBItems import addItem,createTable,getItem,addToItem #add DynamoDB.Items af
 #print(getItem('computer'))
 #addItem('pizza')
 #print(getItem('pizza'))
-addItem("chairs")
+addItem("Eliot")
 #addToItem('computer')
