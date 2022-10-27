@@ -36,8 +36,8 @@ The Items folder contains 'RandomItem' which enables random access to any elemen
 the keys to get the item information. It also contains a template file containing bare functions.
 ***Important***
 DynamoDB is similar to a Hash Table - Every time we read it requires capacity units, 
-currently the most we can use is 25. For Example: traversing the entire table to pick a 
-random element would cost n capacity units and so I made another table that is easier to access
-(using integer values as the key) which gives access to the actual data key. This requires 2 read
-units. In testFiles DO NOT abuse/change the functions - they are meant for single access (1 RCU).
+currently the most we can use is 25, currently set to 10. For Example: traversing the entire table 
+to pick a random element would cost n capacity units and so I made another table that is easier to
+access (using integer values as the key) which gives access to the actual data key.
+In testFiles DO NOT abuse/change the functions - they are meant for single access.
 
