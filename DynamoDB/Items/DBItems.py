@@ -39,6 +39,8 @@ def createTable(name):
 
 # Print out some data about the table.
 # This will cause a request to be made to DynamoDB and its attribute
+
+#4 RCU usage ?!!!?!?!
 def addItem(item):
     if(type(item)) == str and (getItem(item) == None):
         table = dynamodb.Table('Items')
@@ -65,6 +67,7 @@ def addItem(item):
         print("Did not add table due to errors")
 
 #get item
+#1 RCU usage
 def getItem(item):
     table = dynamodb.Table('Items')
     if(type(item)) == str:
@@ -81,6 +84,7 @@ def getItem(item):
     return info
 
 #updated - add 1 popularity to item: popularity sujected to change based on user info
+#2 RCU usage
 def addToItem(item):
     dictValues = getItem(item) #fix values to get element (values return a dict)
     values = dictValues["item_popularity"]
@@ -98,3 +102,15 @@ def addToItem(item):
             ':item': values + 1
         }
         )
+#only for important testing, not for production usage at the moment.
+def scan_Table():
+    table = dynamodb.Table('Items')
+
+    response = table.scan()
+    data = response['Items']
+
+    while 'LastEvaluatedKey' in response:
+        response = table.scan(ExclusiveStartKey=response['LastEvaluatedKey'])
+        data.extend(response['Items'])
+    
+    return data

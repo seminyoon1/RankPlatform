@@ -1,5 +1,6 @@
 import boto3
-#TRYING TO GET THIS TO WORK :(
+import random
+#it works :D
 class randomTable:
     #get total num of items in the table
     def getItemValue():
@@ -28,3 +29,4 @@ class randomTable:
             ':item': value + 1
         }
         )
+    #def getRandomItem():

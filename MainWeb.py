@@ -29,17 +29,22 @@ def text():
                                             arrNum2 = dictItems2[1], 
                                             comments=arr)
     arr.append(request.form["text_input"])
+    if request.method == "POST":
+        #this gets the value from a html form
+        value = request.form.get("text_input")
+        print(value)
     return redirect(url_for('text'))
 
 @app.route('/reset', methods=['GET', 'POST'])
 def reset():
     dictItems = random.choice(list(arrList.items()))
     dictItems2 = random.choice(list(arrList.items()))
-    return render_template("home.html", arrItem = dictItems[0], 
-                                        arrNum = dictItems[1], 
-                                        arrItem2 = dictItems2[0], 
-                                        arrNum2 = dictItems2[1], 
-                                        comments=arr)
+    if request.method == "GET":
+        return render_template("home.html", arrItem = dictItems[0], 
+                                            arrNum = dictItems[1], 
+                                            arrItem2 = dictItems2[0], 
+                                            arrNum2 = dictItems2[1], 
+                                            comments=arr)
     arr.clear()
     return redirect(url_for('reset'))
     
