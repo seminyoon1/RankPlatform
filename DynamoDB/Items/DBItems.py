@@ -40,7 +40,7 @@ def createTable(name):
 # Print out some data about the table.
 # This will cause a request to be made to DynamoDB and its attribute
 def addItem(item):
-    if(type(item)) == str:
+    if(type(item)) == str and (getItem(item) == None):
         table = dynamodb.Table('Items')
         randTable = dynamodb.Table('Random_Items')
 
@@ -62,7 +62,7 @@ def addItem(item):
         )
         randomTable.addItemValue()
     else:
-        print("not a string")
+        print("Did not add table due to errors")
 
 #get item
 def getItem(item):

@@ -42,5 +42,6 @@ def reset():
                                         comments=arr)
     arr.clear()
     return redirect(url_for('reset'))
+    
 if __name__ == '__main__':
    app.run(debug=True)

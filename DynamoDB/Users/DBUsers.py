@@ -32,7 +32,7 @@ def createTable(name):
 # This will cause a request to be made to DynamoDB and its attribute
 def addItem(item):
     table = dynamodb.Table('Items')
-    if(type(item)) == str:
+    if(type(item)) == str and (getItem(item) == None):
         num = convertToID(item)
         table.put_item(
         Item={
