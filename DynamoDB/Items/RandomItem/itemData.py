@@ -1,6 +1,6 @@
 import boto3
 import random
-#it works :D
+
 class randomTable:
     #get total num of items in the table
     def getItemValue():

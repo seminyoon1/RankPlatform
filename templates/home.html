@@ -10,10 +10,14 @@
 <body>
   <main>
     <div class="Item1">
-      <button type="button" class="ItemButton"> {{ arrItem }} </button>
+      <form action="/vote" method="post">
+        <button type="submit" class="ItemButton" name="vote" value = "{{ arrItem }}"> {{ arrItem }} </button>
+      </form>
     </div>
     <div class="Item2">
-      <button type="button" class="ItemButton"> {{ arrItem2 }} </button>
+      <form action="/vote" method="post">
+        <button type="submit" class="ItemButton" name="vote" value = "{{ arrItem2 }}"> {{ arrItem2 }} </button>
+      </form>
     </div>
     <div class="PopularityText1"> 
       <h2>With popularity</h2>

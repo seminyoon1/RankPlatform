@@ -8,6 +8,7 @@ arr = []
 #if you have AWS working: comment this line and uncomment out lines labeled in the functions
 arrDict = list(getData().items())
 
+voted = False
 
 @app.route('/')
 def index():
@@ -18,7 +19,8 @@ def index():
 
     #arrDict1 = list(getDictItems(3).items())
     #arrDict2 = list(getDictItems(4).items())
-
+    if voted == True:
+        return redirect(url_for('vote'))
     return render_template("home.html", arrItem = arrDict[0][0], 
                                         arrNum = arrDict[0][1], 
                                         arrItem2 = arrDict[1][0], 
@@ -26,6 +28,21 @@ def index():
                                         comments=arr)
  
 #app.route("variable name") correlates to the function, called from html button form action
+@app.route('/vote', methods=['GET', 'POST'])
+def vote():
+    global voted
+    if request.method == "POST":
+        print(request.form['vote'])# = the element use has chosen
+        if voted == False and request.form['vote'] != "You must wait.":
+            voted = True
+            return render_template("home.html", arrItem = "You have voted!", arrItem2 = "You have voted!")
+        else:
+            return redirect('/')
+    elif voted == True:
+        voted = False
+        return render_template("home.html", arrItem = "You must wait.", arrItem2 = "You must wait.")
+    return redirect('/')
+
 @app.route('/text', methods=['GET', 'POST'])
 def text():
 
