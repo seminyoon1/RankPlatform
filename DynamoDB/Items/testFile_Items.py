@@ -1,6 +1,7 @@
 from DBItems import addItem,createTable,getItem,addToItem,scan_Table #add DynamoDB.Items after testing
 from RandomItem.itemData import randomTable
 import time
+import random
 #addItem adds item to the table
 #createTable creates a table. 
 #getItem gets an item with specified parameter.

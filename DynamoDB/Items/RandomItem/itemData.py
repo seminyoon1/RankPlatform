@@ -34,17 +34,16 @@ class randomTable:
 
         totalVal = randomTable.getItemValue() - 1
         numArr = random.sample(range(0, totalVal), num)
-        returnArr = []
+        returnSet = set()
 
         if totalVal >= num:
-            for i in numArr:
+            for i in range(len(numArr)):
                 response = table.get_item(
                 Key={
-                'valueItem': i
+                'valueItem': numArr[i]
                 }
                 )
-                returnArr.append(response['Item']['item_name'])
+                returnSet.add(response['Item']['item_name'])
+            return returnSet
         else:
             return "Unable to get all elements!"
-
-        return returnArr
