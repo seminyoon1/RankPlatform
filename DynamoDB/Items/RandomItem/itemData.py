@@ -33,10 +33,10 @@ class randomTable:
         table = dynamodb.Table('Random_Items')
 
         totalVal = randomTable.getItemValue() - 1
-        numArr = random.sample(range(0, totalVal), num)
         returnSet = set()
 
         if totalVal >= num:
+            numArr = random.sample(range(0, totalVal), num)
             for i in range(len(numArr)):
                 response = table.get_item(
                 Key={

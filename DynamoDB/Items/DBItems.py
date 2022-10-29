@@ -1,6 +1,5 @@
 import boto3
-from itemID import convertToID #add DynamoDB.itemID after testing
-from RandomItem.itemData import randomTable
+from DynamoDB.Items.RandomItem.itemData import randomTable
 
 #DOCUMENTATION https://boto3.amazonaws.com/v1/documentation/api/latest/guide/dynamodb.html
 

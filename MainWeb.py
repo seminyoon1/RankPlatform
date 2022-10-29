@@ -1,33 +1,42 @@
 from flask import Flask, render_template, request, redirect, url_for
 from testData.data import getData
-import random
-from DynamoDB.Items.DBItems import addItem,createTable,getItem,addToItem,scan_Table
+from ToFlask import getDictItems
 
 app = Flask(__name__)
 arr = []
-arrList = getData()
+
+#if you have AWS working: comment this line and uncomment out lines labeled in the functions
+arrDict = list(getData().items())
+
 
 @app.route('/')
 def index():
-    dictItems = random.choice(list(arrList.items()))
-    dictItems2 = random.choice(list(arrList.items()))
     #basic rendering, must be in the templates folder
-    return render_template("home.html", arrItem = dictItems[0], 
-                                        arrNum = dictItems[1], 
-                                        arrItem2 = dictItems2[0], 
-                                        arrNum2 = dictItems2[1], 
+
+    #comment out
+    #arrDict = list(getDictItems(2).items())
+
+    #arrDict1 = list(getDictItems(3).items())
+    #arrDict2 = list(getDictItems(4).items())
+
+    return render_template("home.html", arrItem = arrDict[0][0], 
+                                        arrNum = arrDict[0][1], 
+                                        arrItem2 = arrDict[1][0], 
+                                        arrNum2 = arrDict[1][1], 
                                         comments=arr)
  
 #app.route("variable name") correlates to the function, called from html button form action
 @app.route('/text', methods=['GET', 'POST'])
 def text():
-    dictItems = random.choice(list(arrList.items()))
-    dictItems2 = random.choice(list(arrList.items()))
+
+    #comment out
+    #arrDict = list(getDictItems(2).items())
+
     if request.method == "GET":
-        return render_template("home.html", arrItem = dictItems[0], 
-                                            arrNum = dictItems[1], 
-                                            arrItem2 = dictItems2[0], 
-                                            arrNum2 = dictItems2[1], 
+        return render_template("home.html", arrItem = arrDict[0][0], 
+                                            arrNum = arrDict[0][1], 
+                                            arrItem2 = arrDict[1][0], 
+                                            arrNum2 = arrDict[1][1], 
                                             comments=arr)
     arr.append(request.form["text_input"])
     if request.method == "POST":
@@ -38,14 +47,17 @@ def text():
 
 @app.route('/reset', methods=['GET', 'POST'])
 def reset():
-    dictItems = random.choice(list(arrList.items()))
-    dictItems2 = random.choice(list(arrList.items()))
+
+    #comment out
+    #arrDict = list(getDictItems(2).items())
+
     if request.method == "GET":
-        return render_template("home.html", arrItem = dictItems[0], 
-                                            arrNum = dictItems[1], 
-                                            arrItem2 = dictItems2[0], 
-                                            arrNum2 = dictItems2[1], 
-                                            comments=arr)
+        return render_template("home.html")
+    #    return render_template("home.html", arrItem = arrDict[0][0], 
+    #                                        arrNum = arrDict[0][1], 
+    #                                        arrItem2 = arrDict[1][0], 
+    #                                        arrNum2 = arrDict[1][1], 
+    #                                        comments=arr)
     arr.clear()
     return redirect(url_for('reset'))
     
