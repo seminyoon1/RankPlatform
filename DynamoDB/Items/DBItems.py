@@ -15,25 +15,25 @@ def createTable(name):
             {
                 'AttributeName': 'item_name',
                 'KeyType': 'HASH'
-            },
-            {
-                'AttributeName': 'item_ID',
-                'KeyType': 'RANGE'
             }
+            #{
+            #    'AttributeName': 'item_ID',
+            #   'KeyType': 'RANGE'
+            #}
         ],
         AttributeDefinitions=[
             {
                 'AttributeName': 'item_name',
                 'AttributeType': 'S'
-            },
-            {
-                'AttributeName': 'item_ID',
-                'AttributeType': 'N'
             }
+            #{
+            #    'AttributeName': 'item_ID',
+            #    'AttributeType': 'N'
+            #}
         ],
         ProvisionedThroughput={
-            'ReadCapacityUnits': 10,
-            'WriteCapacityUnits': 10
+            'ReadCapacityUnits': 15,
+            'WriteCapacityUnits': 15
         }
     )
 
@@ -46,11 +46,9 @@ def addItem(item):
         table = dynamodb.Table('Items')
         randTable = dynamodb.Table('Random_Items')
 
-        num = convertToID(item)
         table.put_item(
         Item={
                 'item_name': item,
-                'item_ID': num,
                 'item_popularity': 0
             }
         )
@@ -71,11 +69,9 @@ def addItem(item):
 def getItem(item):
     table = dynamodb.Table('Items')
     if(type(item)) == str:
-        num = convertToID(item)
         response = table.get_item(
         Key={
-            'item_name': item,
-            'item_ID': num
+            'item_name': item
             }
         )
     else:
@@ -91,11 +87,9 @@ def addToItem(item):
     table = dynamodb.Table('Items')
     #get dict key from value to update
     if(type(item)) == str:
-        num = convertToID(item)
         table.update_item(
         Key={
-            'item_name': item,
-            'item_ID': num
+            'item_name': item
         },
         UpdateExpression='SET item_popularity = :item',
         ExpressionAttributeValues={

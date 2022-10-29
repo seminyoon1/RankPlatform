@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from testData.data import getData
 import random
+from DynamoDB.Items.DBItems import addItem,createTable,getItem,addToItem,scan_Table
 
 app = Flask(__name__)
 arr = []
