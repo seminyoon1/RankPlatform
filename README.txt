@@ -23,6 +23,9 @@ I don't know front end lol plz halp
 See templates for HTML files and static for CSS files (required for Flask to access it)
 See documentation for accessing python variables to html: https://flask.palletsprojects.com/en/2.2.x/quickstart/
 
+Only comment/uncomment out lines specified in MainWeb.py - other lines are for general ideas and
+future steps we could take later on. Running those lines will use up massive amount of data.
+
 
 Pertinent Back End Information:
 
@@ -36,7 +39,7 @@ The Items folder contains 'RandomItem' which enables random access to any elemen
 the keys to get the item information. It also contains a template file containing bare functions.
 ***Important***
 DynamoDB is similar to a Hash Table - Every time we read it requires capacity units, 
-currently the most we can use is 25, currently set to 10. For Example: traversing the entire table 
+currently the most we can use is 25. For Example: traversing the entire table 
 to pick a random element would cost n capacity units and so I made another table that is easier to
 access (using integer values as the key) which gives access to the actual data key.
 In testFiles DO NOT abuse/change the functions - they are meant for single access.

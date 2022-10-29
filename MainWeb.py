@@ -32,7 +32,7 @@ def index():
 def vote():
     global voted
     if request.method == "POST":
-        print(request.form['vote'])# = the element use has chosen
+        # request.form['vote'] = the element use has chosen
         if voted == False and request.form['vote'] != "You must wait.":
             voted = True
             return render_template("home.html", arrItem = "You have voted!", arrItem2 = "You have voted!")
@@ -65,7 +65,7 @@ def text():
 @app.route('/reset', methods=['GET', 'POST'])
 def reset():
 
-    #comment out
+    #comment out (idk if its useful)
     #arrDict = list(getDictItems(2).items())
 
     if request.method == "GET":

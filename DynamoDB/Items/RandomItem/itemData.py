@@ -32,11 +32,11 @@ class randomTable:
         dynamodb = boto3.resource('dynamodb')
         table = dynamodb.Table('Random_Items')
 
-        totalVal = randomTable.getItemValue() - 1
+        totalVal = randomTable.getItemValue()
         returnSet = set()
 
         if totalVal >= num:
-            numArr = random.sample(range(0, totalVal), num)
+            numArr = random.sample(range(totalVal), num)
             for i in range(len(numArr)):
                 response = table.get_item(
                 Key={
