@@ -41,7 +41,7 @@ input[type=button], input[type=submit], input[type=reset] {
 body > main {
     display: grid;
     grid-template-columns: repeat(2, 50%);
-    grid-template-rows: 15rem;
+    grid-template-rows: 15rem 3rem 10rem;
     gap: 8px;
 }
 
@@ -57,6 +57,12 @@ body > main {
     cursor: pointer;
 }
 
+/* Makes button darker when you hover over it */
 .ItemButton:hover {
     background: rgb(60, 22, 22);
+}
+
+.ItemButton:active {
+    transform: (0.98);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
 }
