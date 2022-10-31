@@ -6,7 +6,7 @@ app = Flask(__name__)
 arr = []
 
 #if you have AWS working: comment this line and uncomment out lines labeled in the functions
-arrDict = list(getData().items())
+#arrDict = list(getData().items())
 
 voted = False
 
@@ -15,7 +15,7 @@ def index():
     #basic rendering, must be in the templates folder
 
     #comment out
-    #arrDict = list(getDictItems(2).items())
+    arrDict = list(getDictItems(2).items())
 
     #arrDict1 = list(getDictItems(3).items())
     #arrDict2 = list(getDictItems(4).items())
@@ -47,7 +47,7 @@ def vote():
 def text():
 
     #comment out
-    #arrDict = list(getDictItems(2).items())
+    arrDict = list(getDictItems(2).items())
 
     if request.method == "GET":
         return render_template("home.html", arrItem = arrDict[0][0], 

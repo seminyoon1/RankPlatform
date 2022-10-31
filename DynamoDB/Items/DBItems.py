@@ -59,7 +59,7 @@ def addItem(item):
                 'item_name': item
             }
         )
-        randomTable.addItemValue()
+        randomTable.addItemValue(1)
     else:
         print("Did not add table due to errors")
 
@@ -107,3 +107,14 @@ def scan_Table():
         data.extend(response['Items'])
     
     return data
+
+#do not use this - only for test. This should not be used in actual production
+def deleteItem(item):
+    if(type(item)) == str:
+        table = dynamodb.Table('Items')
+        table.delete_item(
+        Key={
+            'item_name': item
+        }
+        )
+        randomTable.addItemValue(-1)
