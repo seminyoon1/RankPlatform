@@ -41,7 +41,7 @@ input[type=button], input[type=submit], input[type=reset] {
 body > main {
     display: grid;
     grid-template-columns: repeat(2, 50%);
-    grid-template-rows: 15rem 3rem 10rem;
+    grid-template-rows: 15rem;
     gap: 8px;
 }
 
