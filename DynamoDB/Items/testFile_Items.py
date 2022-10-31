@@ -1,4 +1,4 @@
-from DBItems import addItem,createTable,getItem,addToItem,scan_Table,deleteItem #add DynamoDB.Items after testing
+from DBItems import addItem,createTable,getItem,addToItem,scan_Table #add DynamoDB.Items after testing
 from RandomItem.itemData import randomTable
 import time
 import random
@@ -20,5 +20,3 @@ bro = time.time()
 
 print("For " + str(n) + " elements, it took on average " + str((bro-seconds)/20) + " seconds")
 print(y)
-
-#deleteItem
