@@ -14,19 +14,20 @@ class randomTable:
         value = response['Item']['item_popularity']
         return int(value)
 
-    def addItemValue():
-        dynamodb = boto3.resource('dynamodb')
-        value = randomTable.getItemValue()
-        table = dynamodb.Table('Items')
-        table.update_item(
-        Key={
-            'item_name': 'CRTgetITRANDvalue'
-        },
-        UpdateExpression='SET item_popularity = :item',
-        ExpressionAttributeValues={
-            ':item': value + 1
-        }
-        )
+    def addItemValue(num):
+        if type(num) == int:
+            dynamodb = boto3.resource('dynamodb')
+            value = randomTable.getItemValue()
+            table = dynamodb.Table('Items')
+            table.update_item(
+            Key={
+                'item_name': 'CRTgetITRANDvalue'
+            },
+            UpdateExpression='SET item_popularity = :item',
+            ExpressionAttributeValues={
+                ':item': value + num
+            }
+            )
     
     def getRandomItems(num):
         dynamodb = boto3.resource('dynamodb')
