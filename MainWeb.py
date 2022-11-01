@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 from testData.data import getData
-from ToFlask import getDictItems
+from FlaskConnector import getDictItems
 
 app = Flask(__name__)
 arr = []
@@ -8,6 +8,7 @@ arr = []
 #if you have AWS working: comment this line and uncomment out lines labeled in the functions
 #arrDict = list(getData().items())
 
+userAccount = False #needed for account testing
 voted = False
 
 @app.route('/')

@@ -12,19 +12,19 @@ def createTable(name):
         TableName=name,
         KeySchema=[
             {
-                'AttributeName': 'valueItem',
+                'AttributeName': 'username',
                 'KeyType': 'HASH'
             }
         ],
         AttributeDefinitions=[
             {
-                'AttributeName': 'valueItem',
-                'AttributeType': 'N'
+                'AttributeName': 'username',
+                'AttributeType': 'S'
             }
         ],
         ProvisionedThroughput={
-            'ReadCapacityUnits': 10,
-            'WriteCapacityUnits': 10
+            'ReadCapacityUnits': 25,
+            'WriteCapacityUnits': 25
         }
     )
 
