@@ -28,7 +28,7 @@ class randomTable:
                 ':item': value + num
             }
             )
-    
+
     def getRandomItems(num):
         dynamodb = boto3.resource('dynamodb')
         table = dynamodb.Table('Random_Items')

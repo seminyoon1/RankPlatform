@@ -1,6 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
 
-.Heading {
+.Header {
+    font-size: 50px;
+    color: white;
+    background-color: Black;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+}
+
+.Voting {
     font-size: 50px;
     color: white;
     text-align: center;
@@ -8,7 +16,6 @@
 }
 
 body {
-    background-image: url("web_bkrndjpg");
     background-color: #c1a735;
 }
 h1 {

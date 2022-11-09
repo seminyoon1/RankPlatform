@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 from testData.data import getData
-from FlaskConnector import getDictItems
+from FlaskConnector import getDictItems, adminResetItem, increasePopularity
 
 app = Flask(__name__)
 arr = []
@@ -28,6 +28,19 @@ def index():
                                         arrNum2 = arrDict[1][1], 
                                         comments=arr)
  
+@app.route('/admin', methods = ['GET', 'POST'])
+def admin():
+    arrDict = list(getDictItems(2).items())
+    global voted
+    if request.method == "POST":
+        reset = request.form['admin']
+        adminResetItem(reset)
+    return render_template("admin.html", arrItem = arrDict[0][0], 
+                                        arrNum = arrDict[0][1], 
+                                        arrItem2 = arrDict[1][0], 
+                                        arrNum2 = arrDict[1][1], 
+                                        comments=arr)
+
 #app.route("variable name") correlates to the function, called from html button form action
 @app.route('/vote', methods=['GET', 'POST'])
 def vote():
@@ -36,6 +49,7 @@ def vote():
         # request.form['vote'] = the element use has chosen
         if voted == False and request.form['vote'] != "You must wait.":
             voted = True
+            increasePopularity(request.form['vote'])
             return render_template("home.html", arrItem = "You have voted!", arrItem2 = "You have voted!")
         else:
             return redirect('/')

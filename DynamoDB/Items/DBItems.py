@@ -63,6 +63,20 @@ def addItem(item):
     else:
         print("Did not add table due to errors")
 
+def resetItem(item):
+    print(item)
+    table = dynamodb.Table('Items')
+    #get dict key from value to update
+    if(type(item)) == str:
+        table.update_item(
+        Key={
+            'item_name': item
+        },
+        UpdateExpression='SET item_popularity = :item',
+        ExpressionAttributeValues={
+            ':item': 0
+        }
+        )
 #get item
 #1 RCU usage
 def getItem(item):
