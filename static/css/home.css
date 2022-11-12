@@ -47,6 +47,7 @@ input[type=button], input[type=submit], input[type=reset] {
 
 body > main {
     display: grid;
+    justify-content: center;
     grid-template-columns: repeat(2, 50%);
     grid-template-rows: 15rem;
     gap: 8px;
@@ -62,6 +63,10 @@ body > main {
 
     border: none;
     cursor: pointer;
+}
+
+.Popularity {
+    visibility: hidden;
 }
 
 /* Makes button darker when you hover over it */

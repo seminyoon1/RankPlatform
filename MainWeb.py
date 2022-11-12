@@ -13,15 +13,13 @@ voted = False
 
 @app.route('/')
 def index():
-    #basic rendering, must be in the templates folder
-
-    #comment out
-    arrDict = list(getDictItems(2).items())
-
-    #arrDict1 = list(getDictItems(3).items())
-    #arrDict2 = list(getDictItems(4).items())
     if voted == True:
         return redirect(url_for('vote'))
+    #basic rendering, must be in the templates folder
+    arrDict = list(getDictItems(2).items())
+    #comment out
+    #arrDict1 = list(getDictItems(3).items())
+    #arrDict2 = list(getDictItems(4).items())
     return render_template("home.html", arrItem = arrDict[0][0], 
                                         arrNum = arrDict[0][1], 
                                         arrItem2 = arrDict[1][0], 
