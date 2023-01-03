@@ -18,8 +18,6 @@ to get started.
 
 Pertinent Front End Information:
 
-I don't know front end lol plz halp
-
 See templates for HTML files and static for CSS files (required for Flask to access it)
 See documentation for accessing python variables to html: https://flask.palletsprojects.com/en/2.2.x/quickstart/
 
